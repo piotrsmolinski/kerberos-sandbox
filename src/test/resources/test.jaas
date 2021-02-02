@@ -1,0 +1,26 @@
+TestServer {
+  com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=true
+    storeKey=true
+    keyTab="target/server.keytab"
+    serviceName="test"
+    isInitiator=false
+    principal="*"
+    ;
+};
+
+TestBroker {
+  com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=true
+    storeKey=true
+    keyTab="target/server.keytab"
+    principal="test/instance-0";
+};
+
+TestClient {
+  com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=true
+    storeKey=true
+    keyTab="target/client.keytab"
+    principal="test";
+};
